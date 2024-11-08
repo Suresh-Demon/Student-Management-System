@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Page..</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 shadow mt-1 p-5 mx-auto">
+                    <h2>EDIT STUDENT</h2>
+                     <form action="\edit\{{d.id}}" method="POST" class="mb-5">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="Input1" class="form-label">STUDENT NAME</label>
+                            <input type="text" name="uname" class="form-control" id="Input1" value="{{d.name}}" >
+                          </div>
+                          <div class="mb-3">
+                            <label for="Input1" class="form-label">EMAIL ID</label>
+                            <input type="email" name="emailid" class="form-control" value="{{d.email}}">
+                          </div>
+                          <div class="mb-3">
+                            <label for="Input1" class="form-label">MOBILE NO</label>
+                            <input type="number"  name="mobileno" class="form-control" id="Input1" value="{{d.mobile}}">
+                          </div>
+                          <div class="mb-3">
+                            <label for="Input1" class="form-label">ADDRESS</label>
+                            <input type="text" name="addre" class="form-control" id="Input1" value="{{d.address}}">
+                          </div>
+                          <div class="mb-3">
+                            <label for="Input2" class="form-label">COURSE</label>
+                            <input type="text" name="dcourse" class="form-control" id="Input2" value="{{d.course}}">
+                          </div>
+                          <div class="mb-3">
+                            <input type="submit" class="btn btn-info" value="EDIT STUDENT">
+                          </div>
+                         
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
