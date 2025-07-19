@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +11,17 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/show.css' %}">
+  <script src="{% static 'js/show.js' %}"></script>
+
 </head>
 
 <body>
   <section>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#"><img src="https://cdn-icons-png.flaticon.com/512/5850/5850276.png" alt="sdds"
+            width="40px"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -23,17 +29,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+
+
           </ul>
         </div>
       </div>
@@ -44,7 +43,8 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header" style="background-color: rgb(75, 236, 228);">
-          <h5 class="modal-title " id="exampleModalLabel">ADD STUDENT</h5>
+          <h5 class="modal-title " id="exampleModalLabel">ADD STUDENT <img
+              src="https://cdn-icons-png.flaticon.com/512/5850/5850276.png" alt="sdds" width="50px"></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -54,24 +54,24 @@
                 <form action="" method="POST" class="mb-5">
                   {% csrf_token %}
                   <div class="mb-3 mt-4">
-                    <label for="Input1" class="form-label">STUDENT NAME</label>
-                    <input type="text" name="uname" class="form-control" id="Input1">
+                    <label for="inputName" class="form-label">STUDENT NAME</label>
+                    <input type="text" name="uname" class="form-control" id="inputName">
                   </div>
                   <div class="mb-3">
-                    <label for="Input1" class="form-label">EMAIL ID</label>
-                    <input type="email" name="emailid" class="form-control">
+                    <label for="inputEmail" class="form-label">EMAIL ID</label>
+                    <input type="email" name="emailid" class="form-control" id="inputEmail">
                   </div>
                   <div class="mb-3">
-                    <label for="Input1" class="form-label">MOBILE NO</label>
-                    <input type="number" name="mobileno" class="form-control" id="Input1">
+                    <label for="inputMobile" class="form-label">MOBILE NO</label>
+                    <input type="number" name="mobileno" class="form-control" id="inputMobile">
                   </div>
                   <div class="mb-3">
-                    <label for="Input1" class="form-label">ADDRESS</label>
-                    <input type="text" name="addre" class="form-control" id="Input1">
+                    <label for="inputAddress" class="form-label">ADDRESS</label>
+                    <input type="text" name="addre" class="form-control" id="inputAddress">
                   </div>
                   <div class="mb-3">
-                    <label for="Input2" class="form-label">COURSE</label>
-                    <input type="text" name="dcourse" class="form-control" id="Input2">
+                    <label for="inputCourse" class="form-label">COURSE</label>
+                    <input type="text" name="dcourse" class="form-control" id="inputCourse">
                   </div>
 
                   <div class="modal-footer">
@@ -90,39 +90,66 @@
       </div>
     </div>
   </div>
-  <div class="container mt-3 p-3 border rounded ">
-    <button type="button" class="btn btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      ADD STUDENT
+  <div class="container mt-2 p-3 border rounded ">
+    <button type="button" class="btn btn-dark mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      ADD STUDENT <img src="https://cdn-icons-png.flaticon.com/512/5850/5850276.png" alt="sdds" width="40px">
     </button>
-    <table class="table table-bordered mt-3">
-      <thead>
-        <tr>
-          <th scope="col">SRNO</th>
-          <th scope="col">NAME</th>
-          <th scope="col">EMAIL</th>
-          <th scope="col">MOBILE</th>
-          <th scope="col">ADDRESS</th>
-          <th scope="col">COURSE</th>
-          <th scope="col">ACTION</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for i in d %}
-        <tr>
-          <th>{{forloop.counter}}</th>
-          <td>{{i.name}}</td>
-          <td>{{i.email}}</td>
-          <td>{{i.mobile}}</td>
-          <td>{{i.address}}</td>
-          <td>{{i.course}}</td>
-          <td><a href="/edit/{{i.id}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
-            <span><a class="btn btn-danger btn-sm" href="/delete/{{i.id}}"><i class="fa-solid fa-trash"></i></a></span>
-          </td>
+    <form class="d-flex mt-2" action="{% url 'search_box' %}" method="GET">
+      {% csrf_token %}
+      <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search"
+        value="{{ query }}">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="table-responsive mt-3">
+      <table class="table table-bordered">
 
-        </tr>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div id="alert-box" class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         {% endfor %}
-      </tbody>
-    </table>
+        {% endif %}
+        <thead>
+          <tr>
+            <th scope="col">SRNO</th>
+            <th scope="col">NAME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">MOBILE</th>
+            <th scope="col">ADDRESS</th>
+            <th scope="col">COURSE</th>
+            <th scope="col">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if d %}
+          {% for i in d %}
+          <tr>
+            <th>{{ i.id }}</th>
+            <td>{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.mobile }}</td>
+            <td>{{ i.address }}</td>
+            <td>{{ i.course }}</td>
+            <td>
+              <a href="/edit/{{i.id}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+              <a class="btn btn-danger btn-sm" href="/delete/{{i.id}}"><i class="fa-solid fa-trash"></i></a>
+            </td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          <tr>
+            <td colspan="7" class="no-data-row">
+              <i class="fa-solid fa-user-slash"></i> No student data available.
+            </td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
   </div>

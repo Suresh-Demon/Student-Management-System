@@ -1,0 +1,56 @@
+.d-flex {
+    max-width: 100%;
+    width: 400px;
+    margin: 10px auto;
+}
+
+.modal-dialog {
+    max-width: 500px;
+    width: 90%;
+    margin: 1.75rem auto;
+}
+
+
+.no-data-row {
+    text-align: center;
+    color: #1c1b1b;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.no-data-row i {
+    color: #ccc;
+    margin-right: 8px;
+}
+
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.hide {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+@media (max-width: 768px) {
+    .modal-header h5 {
+        font-size: 18px;
+    }
+
+    .btn img {
+        width: 25px;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        padding: 10px;
+    }
+}
